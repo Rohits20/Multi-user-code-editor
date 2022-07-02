@@ -2,10 +2,7 @@
   "name": "multi-user-code-editor",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "0.8",
-    "npm": "1.2.x"
-  },
+ 
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
