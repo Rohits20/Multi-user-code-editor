@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState, re } from "react";
+import React, { useEffect, useRef, useState, } from "react";
 import Codemirror from "codemirror";
 import Dropdown from "./dropdown";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/dracula.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/addon/edit/closetag";
-import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import "codemirror/addon/edit/closebrackets";
 import ACTIONS from "../Actions";
@@ -35,7 +34,7 @@ const Editor = ({ socketRef, roomId, onCodeChange, setLoading ,loading}) => {
     axios(config)
       .then(setLoading(true) || function (response) {
         
-        if(response.data["success"] == true){
+        if(response.data["success"] === true){
         setCompiled(response.data["output"]);
              }
         else{
