@@ -7,7 +7,7 @@
 }
 
 .formWrapper {
-  background: #282a36;
+  background: #101530;
   padding: 20px;
   border-radius: 10px;
   width: 400px;
@@ -56,18 +56,7 @@ footer a {
   transition: all 0.3s ease-in-out;
   
 }
-.runCodeBtn {
-  border: none;
-  padding: 5px;
-  background: #4aee88;
-  border-radius: 5px;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-top: 2vh;
-  margin-left: 170vh;
-}
+
 .joinBtn
   {
     background: #4aee88;
@@ -147,8 +136,104 @@ footer a:hover {
 
 .CodeMirror {
   min-height: calc(100vh - 35vh);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.6;
   padding-top: 20px;
 }
  
+
+.dropdown {
+  width: 120px;
+  user-select: none;
+  margin-top: 6px;
+  margin-left: 3px;
+  margin-bottom: 5px;
+  position:relative;
+}
+.dropdown .dropdown-btn {
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(219, 187, 187, 0.06);
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.dropdown .dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0px;
+  background: rgb(238, 233, 233);
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #333;
+  width: 100%;
+  z-index: 1000; 
+}
+.dropdown .dropdown-content .dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dropdown .dropdown-content .dropdown-item:hover {
+  background: #c8c5c5;
+}
+
+.inputArea{
+  flex-direction: row;
+  display:flex;
+  
+}
+.codeInput{
+  border: none;
+  font-size: 16px;
+  font-weight:bolder;
+  color: #101530;
+  height: 23.5vh;
+  outline: none;
+  width: 70vh;
+  resize:none;
+  background: #4d5c69;
+  margin-top: 5px;
+}
+.result{
+  margin-left: 2px;
+  font-size: 15px;
+  color:#101530;
+  height: 24vh;
+  width: 80vh;
+  background: #4d5c69;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.loading{
+  padding-left: 20px;
+  padding-top: 5px;
+  width: 10px;
+  height: 10px;
+}
+.runCodeBtn {
+  border: none;
+  background: #4aee88;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 2vh;
+  margin-bottom: 20vh;
+  margin-left: 5vh;
+}
+
+#inputID::placeholder {
+  color: #101530;
+  
+}

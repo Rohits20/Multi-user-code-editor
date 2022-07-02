@@ -4,16 +4,40 @@ const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
 const ACTIONS = require("./src/Actions");
-
+const { generateFile } = require("./generateFile");
 const server = http.createServer(app);
 const io = new Server(server);
+// const executeCpp = require("./executeCpp");
 
+
+////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////////////////////////////////
 app.use(express.static("build"));
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+// app.get("/", (req, res) => {
+//   res.json({ hello: "world" });
+// });
 
+// app.post("/run", async (req, res) => {
+//   //here we are providing cpp as a default even if we do not get any langauge as response
+//   const { langauge = "cpp", code } = req.body;
+//   if (code === undefined) {
+//     return res.status(400).json({ success: false, error: "Empty code body" });
+//   }
+//   try {
+//     const filepath = await generateFile(langauge, code);
+//     const output = await executeCpp(filepath);
+//     return res.json({ filepath, output });
+//   } catch (err) {
+//     res.status(800).json({ err });
+//   }
+// });
 
 const userSocketMap = {};
 

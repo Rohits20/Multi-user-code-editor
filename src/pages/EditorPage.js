@@ -20,6 +20,7 @@ const EditorPage = () => {
   const location = useLocation();
   const { roomId } = useParams();
   const [clients, setClients] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   useEffect(() => {
     const init = async () => {
@@ -112,6 +113,8 @@ const EditorPage = () => {
             codeRef.current = code;
             console.log(clients.length);
           }}
+          setLoading ={setLoading}
+          loading= {loading}
         />
       </div>
     </div>
