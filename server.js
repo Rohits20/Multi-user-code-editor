@@ -95,5 +95,5 @@ io.on("connection", (socket) => {
   });
 });
 
-// const PORT = process.env.PORT || 5000;
-server.listen(process.env.PORT || 5000, () => console.log("Listening to port 5000"));
+ const port = process.env.PORT || 5000;
+server.listen(port || 5000, () => console.log("Listening to port 5000"));
