@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start:front": "react-scripts start",
-    "start": "npm run server:prod",
+    "start": "node server.js",
     "build": "npm run build",
     "server:dev": "nodemon server.js",
     "server:prod": "node server.js",
