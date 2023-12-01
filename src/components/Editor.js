@@ -12,18 +12,27 @@ var axios = require("axios");
 var qs = require("qs");
 
 const Editor = ({ socketRef, roomId, onCodeChange, setLoading ,loading}) => {
+  const langaugeMapping = {
+    "cpp" : "cpp",
+    "python" : "py",
+    "java" : "java",
+    "C" : "c",
+    "GoLang"  : "go",
+    "C#" :"cs",
+    "NodeJS" :"js"
+  }
   const [compiled, setCompiled] = useState("O/P");
  const [selected,setSelected]= useState("Langauge")
   const [codeOfUser, setcodeOfUser] = useState(" ");
   const [input,setInput] =useState("");
   var data = qs.stringify({
     code: codeOfUser,
-    language: selected,
+    language: langaugeMapping[selected],
     input: input,
   });
   var config = {
     method: "post",
-    url: "https://codex-api.herokuapp.com/",
+    url: "https://codex-api.fly.dev/",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -31,22 +40,20 @@ const Editor = ({ socketRef, roomId, onCodeChange, setLoading ,loading}) => {
   };
 
   function apiCall() {
+    setLoading(true);
     axios(config)
-      .then(setLoading(true) || function (response) {
-        
-        if(response.data["success"] === true){
+      .then(function (response) {
+        if(response.data?.status === 200){
         setCompiled(response.data["output"]);
              }
         else{
           setCompiled(response.data["error"]);
-        console.log("Langauge Selected");
           console.log(setSelected);
         }
         setLoading(false);
-        // compiled =(response.data["output"]);
-        //    console.log(compiled["error"]);
       })
       .catch(function (error) {
+        setLoading(false);
         console.log(error);
       });
   }

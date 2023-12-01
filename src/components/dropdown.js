@@ -6,7 +6,7 @@ import React from "react";
 
 const Dropdown = ({ selected, setSelected }) => {
   const [isActive, setIsActive] = useState(false);
-  const options = ["cpp", "java", "python", "kotlin"];
+  const options = ["cpp", "java", "python", "C" , "GoLang" , "C#" , "NodeJS"];
   return (
     <div className="dropdown">
     <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
